@@ -2,7 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Para ti 💗</title>
 
     <!-- Google Fonts -->
@@ -28,6 +31,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
       }
 
       body {
@@ -37,65 +41,64 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 40px 20px;
+        justify-content: flex-start;
+        padding: 30px 20px;
         color: var(--gris-texto);
+        overflow-x: hidden;
       }
 
       /* ========== CONTENEDOR PRINCIPAL ========== */
       .container {
-        max-width: 600px;
+        max-width: 100%;
         width: 100%;
         text-align: center;
       }
 
       /* ========== TÍTULO PRINCIPAL ========== */
       .main-title {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         font-weight: 500;
         color: var(--rosa-medio);
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         letter-spacing: 0.5px;
       }
 
       /* ========== SOBRE (EMOJI) ========== */
       .envelope-section {
-        margin: 2rem 0;
+        margin: 1.5rem 0;
       }
 
       .envelope-emoji {
-        font-size: 120px;
+        font-size: 100px;
         cursor: pointer;
         display: inline-block;
         transition: transform 0.3s ease;
         user-select: none;
       }
 
-      .envelope-emoji:hover {
-        transform: scale(1.1);
-      }
-
       .envelope-emoji:active {
-        transform: scale(0.95);
+        transform: scale(0.9);
       }
 
       /* ========== MENSAJE ========== */
       .message-container {
         margin-top: 2rem;
-        min-height: 100px;
+        min-height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0 10px;
       }
 
       .message {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         color: var(--gris-texto);
-        line-height: 1.8;
+        line-height: 1.7;
         font-weight: 400;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.5s ease;
+        max-width: 100%;
       }
 
       .message.show {
@@ -112,7 +115,8 @@
 
       /* ========== GALERÍA MINIMALISTA ========== */
       .gallery-section {
-        margin: 4rem 0;
+        margin: 3.5rem 0;
+        width: 100%;
       }
 
       .section-title {
@@ -124,42 +128,45 @@
       }
 
       .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 16px;
-        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 10px;
       }
 
       .photo-card {
+        width: 100%;
+        max-width: 350px;
         aspect-ratio: 1;
         background: var(--gris-claro);
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 2px 8px var(--sombra);
+        box-shadow: 0 4px 12px var(--sombra);
         transition: all 0.3s ease;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        text-align: center;
-        font-size: 0.8rem;
-        color: #adb5bd;
       }
 
-      .photo-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px var(--sombra);
+      .photo-card:active {
+        transform: scale(0.98);
       }
 
       .photo-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
+        display: block;
       }
 
       /* ========== REPRODUCTOR MINIMALISTA ========== */
       .music-section {
-        margin: 3rem 0;
+        margin: 2.5rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 20px;
       }
 
       .music-player {
@@ -167,19 +174,18 @@
         align-items: center;
         gap: 15px;
         background: var(--gris-claro);
-        padding: 12px 24px;
+        padding: 14px 26px;
         border-radius: 50px;
-        box-shadow: 0 2px 8px var(--sombra);
+        box-shadow: 0 3px 10px var(--sombra);
         transition: all 0.3s ease;
-      }
-
-      .music-player:hover {
-        box-shadow: 0 4px 12px var(--sombra);
+        width: 100%;
+        max-width: 350px;
       }
 
       .play-button {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
         border-radius: 50%;
         background: var(--rosa-suave);
         border: none;
@@ -187,29 +193,30 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.25rem;
-        transition: all 0.3s ease;
+        font-size: 1.3rem;
+        transition: all 0.2s ease;
         box-shadow: 0 2px 8px rgba(255, 140, 171, 0.3);
       }
 
-      .play-button:hover {
-        background: var(--rosa-medio);
-        transform: scale(1.05);
-      }
-
       .play-button:active {
-        transform: scale(0.95);
+        transform: scale(0.9);
+        background: var(--rosa-medio);
       }
 
       .music-info {
         text-align: left;
+        flex: 1;
+        overflow: hidden;
       }
 
       .music-title {
         font-weight: 500;
         color: var(--gris-texto);
-        font-size: 0.9rem;
-        margin-bottom: 2px;
+        font-size: 0.95rem;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .music-status {
@@ -218,29 +225,52 @@
         font-weight: 300;
       }
 
-      /* ========== RESPONSIVE ========== */
-      @media (max-width: 768px) {
+      /* ========== OPTIMIZACIÓN MÓVIL ========== */
+      @media (max-width: 480px) {
+        body {
+          padding: 20px 15px;
+        }
+
+        .main-title {
+          font-size: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
         .envelope-emoji {
-          font-size: 100px;
+          font-size: 90px;
         }
 
         .message {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
         }
 
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
+        .photo-card {
+          max-width: 100%;
+          border-radius: 12px;
+        }
+
+        .music-player {
+          padding: 12px 20px;
+          max-width: 100%;
+        }
+
+        .play-button {
+          width: 48px;
+          height: 48px;
+          min-width: 48px;
+          font-size: 1.2rem;
+        }
+
+        .music-title {
+          font-size: 0.9rem;
         }
       }
 
-      @media (max-width: 480px) {
-        .envelope-emoji {
-          font-size: 80px;
-        }
-
-        .message {
-          font-size: 1rem;
-        }
+      /* Prevenir zoom en iOS */
+      input,
+      select,
+      textarea {
+        font-size: 16px;
       }
     </style>
   </head>
@@ -263,23 +293,13 @@
 
       <!-- Galería minimalista -->
       <div class="gallery-section">
-        <h2 class="section-title">MOMENTOS</h2>
+        <h2 class="section-title">I LOVE U</h2>
         <div class="gallery-grid">
           <div class="photo-card">
-            <!-- Reemplaza con: <img src="https://ik.imagekit.io/..." alt="Foto"> -->
-            <span>Foto 1</span>
-          </div>
-          <div class="photo-card">
-            <!-- Reemplaza con: <img src="https://ik.imagekit.io/..." alt="Foto"> -->
-            <span>Foto 2</span>
-          </div>
-          <div class="photo-card">
-            <!-- Reemplaza con: <img src="https://ik.imagekit.io/..." alt="Foto"> -->
-            <span>Foto 3</span>
-          </div>
-          <div class="photo-card">
-            <!-- Reemplaza con: <img src="https://ik.imagekit.io/..." alt="Foto"> -->
-            <span>Foto 4</span>
+            <img
+              src="https://ik.imagekit.io/b2yvy7rmf/Artboard%203.PNG"
+              alt="Foto"
+            />
           </div>
         </div>
       </div>
@@ -302,7 +322,7 @@
     <script>
       // ========== MENSAJES ROMÁNTICOS ==========
       const messages = [
-        "Hola amor… hoy pensé en ti otra vez 💗",
+        "Gracias por venir a mejorar mi vida 💗",
         "Eres mi lugar favorito del mundo.",
         "Eres el más guapo cuchurrumin.",
         "Te mando un besito.",
@@ -417,21 +437,13 @@
       // ========== INSTRUCCIONES PARA AGREGAR FOTOS Y CANCIONES ==========
       /*
         Para agregar tus fotos:
-        1. Busca cada <div class="photo-card">
-        2. Reemplaza <span>Foto X</span> con:
-           <img src="https://ik.imagekit.io/tu-imagen.jpg" alt="Foto">
+        1. Busca <div class="photo-card">
+        2. Reemplaza el src de la imagen con tu URL
         
         Para agregar tus canciones:
-        1. En el JavaScript, busca el array "songs"
+        1. Busca el array "songs" en JavaScript
         2. Reemplaza cada src con la URL de tu canción:
            { title: "Nombre de la canción", src: "https://tu-url-de-audio.mp3" }
-        
-        Ejemplo:
-        const songs = [
-            { title: "Perfect - Ed Sheeran", src: "https://tu-servidor.com/perfect.mp3" },
-            { title: "Photograph", src: "https://tu-servidor.com/photo.mp3" },
-            ...
-        ];
         
         Nota: Haz DOBLE CLICK en el botón play para cambiar de canción manualmente
         */
